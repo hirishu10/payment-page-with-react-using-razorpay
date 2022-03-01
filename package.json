@@ -1,0 +1,47 @@
+{
+  "name": "payment-page-with-react",
+  "version": "1.0.0 Beta",
+  "description": "Simple Payment Page with MERN dev using mongodb, react, express, node, razorpay, etc.",
+  "main": "server.js",
+  "engines": {
+    "node": "16.x"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "client-install": "npm install --prefix client",
+    "start": "node server.js",
+    "client": "npm start --prefix client",
+    "server": "nodemon server.js",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+  },
+  "proxy": "http://localhost:5000",
+  "author": "Rishu Chowdhary <hi.10rishu@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "concurrently": "^7.0.0",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "mongoose": "^6.2.3",
+    "razorpay": "^2.8.0"
+  },
+  "keywords": [
+    "payment-application",
+    "mern",
+    "mern-app",
+    "full-stak",
+    "react",
+    "node",
+    "mongodb",
+    "express",
+    "payment-page",
+    "database",
+    "razorpay",
+    "scan",
+    "qr-code",
+    "payment-track",
+    "payment-page",
+    "payment-button",
+    "paymnet-link"
+  ]
+}
