@@ -1,6 +1,6 @@
 {
   "name": "payment-page-with-react",
-  "version": "1.0.0 Beta",
+  "version": "1.0.0 Beta 0.1",
   "description": "Simple Payment Page with MERN dev using mongodb, react, express, node, razorpay, etc.",
   "main": "server.js",
   "engines": {

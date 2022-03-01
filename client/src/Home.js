@@ -33,8 +33,6 @@ const Home = ({ navigation }) => {
   const [btnDisabled, seBtnDisabled] = useState(false);
   const [formError, setFormError] = useState("");
   // ----------------------------------------------------------------
-
-  const [modalclose, setmodalclose] = useState("");
   //
 
   /**
@@ -89,7 +87,6 @@ const Home = ({ navigation }) => {
       seBtnDisabled(true);
       loadScript("https://checkout.razorpay.com/v1/checkout.js")
         .then((ok) => {
-          setmodalclose("modal");
           // create order and receve the order_id for payment
           axios
             .post("/api/create/order", {
@@ -139,7 +136,6 @@ const Home = ({ navigation }) => {
               Refresh_details();
             })
             .catch((err) => {
-              setmodalclose("modal");
               alert("server error!");
               seBtnDisabled(false);
             });
@@ -415,7 +411,15 @@ const Home = ({ navigation }) => {
                       className="btn btn-primary"
                       onClick={razorpayPopup}
                       disabled={btnDisabled}
-                      data-bs-dismiss={modalclose}
+                      data-bs-dismiss={
+                        customerName !== "" &&
+                        customerEmail !== "" &&
+                        customerPhone !== "" &&
+                        customerPhone.length === 10 &&
+                        customerAmount !== ""
+                          ? "modal"
+                          : ""
+                      }
                     >
                       Submit
                     </button>
