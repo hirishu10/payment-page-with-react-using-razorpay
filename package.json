@@ -1,6 +1,6 @@
 {
   "name": "payment-page-with-react",
-  "version": "1.0.0 Beta 0.1",
+  "version": "1.0.0-Beta-0.2",
   "description": "Simple Payment Page with MERN dev using mongodb, react, express, node, razorpay, etc.",
   "main": "server.js",
   "engines": {
@@ -43,5 +43,14 @@
     "payment-page",
     "payment-button",
     "paymnet-link"
-  ]
+  ],
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hirishu10/payment-page-with-react-using-razorpay.git"
+  },
+  "bugs": {
+    "url": "https://github.com/hirishu10/payment-page-with-react-using-razorpay/issues"
+  },
+  "homepage": "https://github.com/hirishu10/payment-page-with-react-using-razorpay#readme"
 }

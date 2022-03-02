@@ -1,0 +1,11 @@
+# API (Store-List) 
+
+> With the help of API we can push the data from server to the database collection ↓
+
+> => API (Application Programming Interface): 
+
+- /api/create/order => Create new order receive the order_id
+
+- /api/create/order/paymentdetail/Save => After successfully authorize the order the details may send for save into the server
+
+- /api/trackpayment/details/:id => Provide the tracking id for fetch all the related details for the payment
