@@ -89,7 +89,7 @@ const Home = ({ navigation }) => {
         .then((ok) => {
           // create order and receve the order_id for payment
           axios
-            .post("/api/create/order", {
+            .post("https://rishuapi.vercel.app/api/paymentpage/createOrder", {
               amount: customerAmount * 100, // amount in the smallest currency unit => (INDIAN Currency) => 100paisa is Rs.1 (so you have to multiply the same ammount wiht 100)
               receipt: "order_rcptid_10", // you can automactically change if you can
             })
@@ -155,11 +155,15 @@ const Home = ({ navigation }) => {
    */
   const pushDataIntoDatabase = (datasend) => {
     axios
-      .post("/api/create/order/paymentdetail/Save", datasend, {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      })
+      .post(
+        "https://rishuapi.vercel.app/api/paymentpage/paymentData",
+        datasend,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      )
       .then((item) => {
         setThrowTrackingId({
           condition: true,
@@ -180,27 +184,29 @@ const Home = ({ navigation }) => {
    */
   const getPaymentDetails = (trackingId) => {
     axios
-      .get("/api/trackpayment/details/:id", {
-        headers: {
-          "Content-Type": "application/json",
-          id: trackingId,
-        },
-      })
+      .get(
+        `https://rishuapi.vercel.app/api/paymentpage/trackPaymentDetails?id=${trackingId}`,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      )
       .then((item) => {
+        // console.log("item", item);// ::Debug
         setStatus(item?.data?.status);
         setPaymentDetails({
           status: item?.data?.status,
           message: item?.data?.message,
           paymentDetails: {
-            name: item?.data?.paymentDetails?.name,
-            email: item?.data?.paymentDetails?.email,
-            phoneNumber: item?.data?.paymentDetails?.phoneNumber,
-            amount: item?.data?.paymentDetails?.amount,
-            razorpay_order_id: item?.data?.paymentDetails?.razorpay_order_id,
-            razorpay_payment_id:
-              item?.data?.paymentDetails?.razorpay_payment_id,
-            razorpay_signature: item?.data?.paymentDetails?.razorpay_signature,
-            payment_date: item?.data?.paymentDetails?.payment_date,
+            name: item?.data?.details?.name,
+            email: item?.data?.details?.email,
+            phoneNumber: item?.data?.details?.phoneNumber,
+            amount: item?.data?.details?.amount,
+            razorpay_order_id: item?.data?.details?.razorpay_order_id,
+            razorpay_payment_id: item?.data?.details?.razorpay_payment_id,
+            razorpay_signature: item?.data?.details?.razorpay_signature,
+            payment_date: item?.data?.details?.payment_date,
           },
         });
       })
