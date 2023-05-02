@@ -1,6 +1,6 @@
 # payment-page-with-react-using-razorpay
 
-**Website:** https://mernstorelist.herokuapp.com/
+**Website:** https://payment-page-with-razorpay.netlify.app/
 
 Simple Payment Page with MERN dev using mongodb, react, express, node, razorpay, axios, API(Application Programming Interface), etc.
 
